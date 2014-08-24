@@ -2,6 +2,8 @@
 
 This file describes the background, the data files and the general logic / steps to clean and tidy the smartphone data.
 
+Please Note: One of the big assumptions I made is that the mean and std of "all" measurements (not just the direct observations but also calculated and secondary / tertiary measurements like fourier tranforms) needs to be in the tidy dataset. I could have assumed the exact opposite just as easily but I chose this as the working assumption which gives me more data in the tidy dataset than less!
+
 ### Data Set Description (per the source)
 
 The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
@@ -76,3 +78,8 @@ This script does the following actions to meet each of the required goals:
 * We use melt function to group the data set on activity name and subject along with pivoting the data on the column names as variables
 * We use ddply to summarize the resulting data frame and calculate the mean for each variable (column name), subject and acvitity
 * We write the resulting data frame through write.table with row.name = F option as instructed and have our file!!
+
+### Column Names in the tidy data set:
+* Subject column represents each of the 30 subjects that are part of the study
+* Activity column represents each of the 6 activities that were part of the study
+* variable column represents each of the relevant measures extracted from the original data. Names are self descriptive. Ex: Time prefixed variables are part of the time based collection during study and Fourier prefixed variables are part of the transformed / calculated FFT values of the collected data. XAxis, YAxis and ZAxis suffixed observations are also self explanatory. Accelerometer vs Gyroscope readings are tagged with that text in their names appropriately. Mean vs Std measures are also tagged appropriately.

@@ -21,6 +21,7 @@ The RScript in this repository (run_analysis.R) performs the above steps and pro
 
 * Please set the working directory to where the UCIHARDataset is extracted (that folder should be at the same level as this script)
 * Please pass an inversible matrix to the function as the fringe cases and validation are not handled in the script based on instructions
+* Please note that one of the big assumptions I made is that the mean and std of "all" measurements (not just the direct observations but also calculated and secondary / tertiary measurements like fourier tranforms) needs to be in the tidy dataset. I could have assumed the exact opposite just as easily but I chose this as the working assumption which gives me more data in the tidy dataset than less!
 
 ###Logic
 
