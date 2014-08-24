@@ -1,7 +1,7 @@
 library(plyr)
 library(reshape2)
 
-setwd("c:/dev/data/coursera/UCIHARDataSet/")
+setwd("UCIHARDataSet/") # please set the working directory to where the UCIHARDataset is extracted (that folder should be at the same level as this script)
 
 features <- read.table("features.txt")
 colnames(features) <- c("featureid", "featurename")
@@ -11,7 +11,7 @@ colnames(activitylabels) <- c("activity", "activityname")
 
 # Get the test set ready
 
-testx <- read.table("c:/dev/data/coursera/UCIHARDataset/test/X_test.txt")
+testx <- read.table("test/X_test.txt")
 colnames(testx) <- features$featurename #attach column names to to testx
 
 testsubject <-  read.table("test/subject_test.txt") #subjects - colbind to testx
